@@ -5,11 +5,9 @@ var partition = (input, left, right) => {
 	while(left <= right) {
 		while (input[left] < pivot) {
 			left++;
-			console.log(left + "left")
 		}
 		while (input[right] > pivot) {
 			right--;
-			console.log(right+ " Right")
 		}
 		if (left <= right) {
 			let temp = input[right];
@@ -17,7 +15,6 @@ var partition = (input, left, right) => {
 			input[left] = temp;
 			left++;
 			right--;
-			console.log(input)
 		}
 	}
 	return left;
@@ -32,6 +29,4 @@ var hoare = (input, left = 0, right = input.length - 1) => {
 	return input
 }
 input = [1, 3, 2, 4, 5, 7, 0]
-// console.log(hoare([4, 3, 5, 2, 1, 6, 10, 7, 8, 9]))
-
-console.log(partition(input, 0, input.length - 1))
+console.log(hoare(input))
