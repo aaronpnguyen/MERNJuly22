@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       {people.map(person => {
-        return <Card first_name = {person.first_name} last_name = {person.last_name} age = {person.age} hair_color = {person.hair_color}/>})
+        return <Card {...person}/>})
       }
     </div>
   );
