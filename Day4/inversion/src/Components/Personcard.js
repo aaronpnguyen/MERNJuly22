@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 const Personcard = props => {
-
     const [age, setAge] = useState(props.age);
 
     const addYear = () => {
