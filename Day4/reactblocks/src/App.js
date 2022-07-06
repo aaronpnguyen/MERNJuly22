@@ -1,10 +1,10 @@
 import styles from './components/css/styles.module.css'
-import Header from './components/header'
-import Row from './components/row'
-import Navigation from './components/navigation'
-import Main from './components/main'
-import Subcontent from './components/subcontent'
-import Advertisement from './components/advertisement'
+import Header from './components/Header'
+import Row from './components/Row'
+import Navigation from './components/Navigation'
+import Main from './components/Main'
+import Subcontent from './components/Subcontent'
+import Advertisement from './components/Advertisement'
 
 function App() {
   return (
