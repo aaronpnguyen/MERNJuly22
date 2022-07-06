@@ -26,8 +26,10 @@ class Sensei extends Ninja {
     constructor(name) {
         super(name);
         this.wisdom = 10;
+        this.health = 200;
     }
     speakWisdom() {
+        this.drinkSake()
         console.log(`What one programmer can do in one month, two programmers can do in two months.\nWisdom: ${this.wisdom}`)
     }
 }
