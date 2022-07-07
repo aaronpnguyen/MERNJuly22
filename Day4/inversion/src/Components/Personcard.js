@@ -7,7 +7,7 @@ const Personcard = props => {
         setAge(age + 1)
     }
 
-    return(
+    return (
         <div>
             <h1>{props.last_name}, {props.first_name}</h1>
             <ul>
