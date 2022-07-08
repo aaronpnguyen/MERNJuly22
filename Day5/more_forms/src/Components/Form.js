@@ -22,7 +22,8 @@ const Userform = props => {
             firstName: formInfo.firstName,
             lastName: formInfo.lastName,
             email: formInfo.email,
-            password: formInfo.password};
+            password: formInfo.password
+        };
         console.log("Welcome", newUser);
     };
     
