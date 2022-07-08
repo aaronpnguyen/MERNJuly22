@@ -1,123 +1,67 @@
 import React, {useState} from  'react';
     
 const Userform = props => {
-    const [firstName, setFirstName] = useState("");
-    const [firstError, setFirstError] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [lastError, setLastError] = useState("");
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [confirm, setConfirm] = useState("");
-    const [confirmError, setConfirmError] = useState("");
+    let [formInfo, setFormInfo] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirm: ""
+    })
+
+    const changeHandler = (e) => {
+        setFormInfo({
+            ...formInfo,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const createUser = (e) => {
         e.preventDefault();
-        const newUser = { firstName, lastName, email, password };
+        const newUser = {
+            firstName: formInfo.firstName,
+            lastName: formInfo.lastName,
+            email: formInfo.email,
+            password: formInfo.password};
         console.log("Welcome", newUser);
     };
-
-    const handleFirstName = (e) => {
-        let value = e.target.value;
-        setFirstName(value);
-        if (value.length < 2) {
-            setFirstError("First name must have at least 2 characters!");
-        } else {
-            setFirstError("");
-        }
-    }
-
-    const handleLastName = (e) => {
-        let value = e.target.value;
-        setLastName(value);
-        if (value.length < 2) {
-            setLastError("Last name must have at least 2 characters!");
-        } else {
-            setLastError("");
-        }
-    }
-
-    const handleEmail = (e) => {
-        let value = e.target.value;
-        setEmail(value);
-        if (value.length < 5) {
-            setEmailError("Email must have at least 5 characters!");
-        } else {
-            setEmailError("");
-        }
-    }
-
-    const handlePassword = (e) => {
-        let value = e.target.value;
-        setPassword(value);
-        if (value.length < 8) {
-            setPasswordError("Password must have at least 8 characters!");
-        } else {
-            setPasswordError("");
-        }
-    }
-    
-    const handleConfirm = (e) => {
-        setConfirm(e.target.value);
-        if (e.target.value !== password) {
-            setConfirmError("Passwords must match!");
-        } else {
-            setConfirmError("")
-        }
-    }
     
     return(
         <div>
             <form onSubmit={createUser}>
                 <div>
-                    {firstError ?
-                        <h3 style={{color:'red'}}>{firstError}</h3>: 
-                        ''
-                    }
+                    {formInfo.firstName.length < 2 && formInfo.firstName.length > 0? <p style={{color:'red'}}>First name must be at least 2 characters long!</p>: null}
                     <label>First Name: </label> 
-                    <input type="text" onChange={handleFirstName} />
+                    <input type="text" onChange={changeHandler} name="firstName"/>
                 </div>
                 <div>
-                    {lastError ?
-                        <h3 style={{color:'red'}}>{lastError}</h3>: 
-                        ''
-                    }
+                    {formInfo.lastName.length < 2 && formInfo.lastName.length > 0? <p style={{color:'red'}}>Last name must be at least 2 characters long!</p>: null}
                     <label>Last Name: </label> 
-                    <input type="text" onChange={handleLastName} />
+                    <input type="text" onChange={changeHandler} name="lastName"/>
                 </div>
                 <div>
-                    {emailError ?
-                        <h3 style={{color:'red'}}>{emailError}</h3>: 
-                        ''
-                    }
+                    {formInfo.email.length < 2 && formInfo.email.length > 0? <p style={{color:'red'}}>Email must be at least 2 characters long!</p>: null}
                     <label>Email Address: </label> 
-                    <input type="text" onChange={handleEmail} />
+                    <input type="text" onChange={changeHandler} name="email"/>
                 </div>
                 <div>
-                    {passwordError ?
-                        <h3 style={{color:'red'}}>{passwordError}</h3>: 
-                        ''
-                    }
+                    {formInfo.password.length < 8 && formInfo.password.length > 0? <p style={{color:'red'}} name="password">Password must be at least 8 characters long!</p>: null}
                     <label>Password: </label>
-                    <input type="password" onChange={handlePassword} />
+                    <input type="password" onChange={changeHandler} name="password"/>
                 </div>
                 <div>
-                    {confirmError ?
-                        <h3 style={{color:'red'}}>{confirmError}</h3>: 
-                        ''
-                    }
+                    {formInfo.password !== formInfo.confirm? <p style={{color:'red'}}>Passwords must match!</p>: null}
                     <label>Confirm Password: </label>
-                    <input type="password" onChange={handleConfirm} />
+                    <input type="password" onChange={changeHandler} name="confirm"/>
                 </div>
                 <input type="submit" value="Create User"/>
             </form>
             <div>
-                <h3>First Name: {firstName}</h3>
-                <h3>Last Name: {lastName}</h3>
-                <h3>Email: {email}</h3>
-                <h3>Password: {password}</h3>
-                <h3>Confirm Password: {confirm}</h3>
+                <h3>First Name: {formInfo.firstName}</h3>
+                <h3>Last Name: {formInfo.lastName}</h3>
+                <h3>Email: {formInfo.email}</h3>
+                <h3>Password: {formInfo.password}</h3>
+                <h3>Confirm Password: {formInfo.confirm}</h3>
             </div>
         </div>
     );
