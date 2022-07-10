@@ -45,7 +45,7 @@ const Box = () => {
             {
                 boxList.map((box, i) => {
                     return (
-                            <div style={{backgroundColor: box.color, width: box.size, height: box.size}}></div>
+                            <div key={i} style={{backgroundColor: box.color, width: box.size, height: box.size}}></div>
                             )
                     })
             }
