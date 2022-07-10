@@ -4,7 +4,7 @@ import Styles from './css/styles.module.css'
 const Box = () => {
     let [info, setInfo] = useState({
         color: "",
-        size: undefined,
+        size: ""
     })
     const {color, size} = info;
 
@@ -24,6 +24,7 @@ const Box = () => {
             size: parseInt(size),
         };
         setBoxList([...boxList, newBox])
+        setInfo({color: ""})
     };
 
 
@@ -36,7 +37,7 @@ const Box = () => {
                 </div>
                 <div>
                     <label htmlFor="size">Size: </label>
-                    <input type="number" onChange={changeHandler} name="size" value={size}></input>
+                    <input type="text" onChange={changeHandler} name="size" value={size}></input>
                 </div>
                 <input type="submit" value="Submit"></input>
             </form>
@@ -46,8 +47,8 @@ const Box = () => {
                     return (
                             <div style={{backgroundColor: box.color, width: box.size, height: box.size}}></div>
                             )
-                        })
-                    }
+                    })
+            }
             </div>
         </>
     )
