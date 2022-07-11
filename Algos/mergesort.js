@@ -3,15 +3,15 @@ function merge(arry1,arry2){
     let index1 = 0;
     let index2 = 0;
     while (index1 < arry1.length && index2 < arry2.length) {
-        if (arry1[index1] < arry2[index2]) {
+        if(arry1[index1] < arry2[index2]) {
             result.push(arry1[index1]);
             index1++;
-        } else {
+        } else{
             result.push(arry2[index2]);
             index2++;
         }
     }
-    while (index2 < arry2.length) {
+    while(index2 < arry2.length) {
         result.push(arry2[index2]);
         index2++;
     }
@@ -21,21 +21,18 @@ function merge(arry1,arry2){
     }
     return result;
 }
-  
-function mergeSort(arr, arr2 = [], ) {
-    if (arr.length <= 1) {
-        return arr
+
+function mergeSort(arr) {
+    if (arr.length > 1) {
+        let mid = Math.floor(arr.length/2)
+        let leftHalf = arr.slice(0, mid)
+        let rightHalf = arr.slice(mid, arr.length)
+        let left = mergeSort(leftHalf)
+        let right = mergeSort(rightHalf)
+        return merge(left, right)
     } else {
-        arr.splice(i, Math.ceil(arr.length / 2))
-
-    }
-
-    while () {
-
+        return arr
     }
 }
 
-
-console.log(mergeSort([5, 3, 4, 2, 1, 6, 7]))
-
-// Divide arr into 2 until we hit 1 element
+mergeSort([6,3,8,5,1,2,9]);
