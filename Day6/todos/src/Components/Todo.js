@@ -20,6 +20,7 @@ const Todo = () => {
             todoItem,
             finished: false
         }
+        setInfo({todoItem: ""})
         setTodoList([...todoList, newItem])
     }
 
@@ -52,7 +53,7 @@ const Todo = () => {
         <form onSubmit={createItem}>
             <div>
                 <label htmlFor="todoItem">Your todo item here: </label>
-                <input type="text" onChange={changeHandler} name="todoItem"></input>
+                <input type="text" onChange={changeHandler} name="todoItem" value={todoItem}></input>
             </div>
             <input type="submit"></input>
         </form>
@@ -62,7 +63,7 @@ const Todo = () => {
                     return (
                         <div key={key}>
                             <label htmlFor="todoItem" style={{textDecoration: todo.finished? "line-through": "None"}}>{todo.todoItem}</label>
-                            <input type="checkbox" name="finished" onClick={e => toggleFinish(e, key)}/>
+                            <input type="checkbox" checked={todo.finished} name="finished" onClick={e => toggleFinish(e, key)}/>
                             <button onClick={e => deleteTodo(e, key)}>Delete</button>
                         </div>
                     )
