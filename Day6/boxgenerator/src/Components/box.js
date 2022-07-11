@@ -7,7 +7,6 @@ const Box = () => {
         size: ""
     })
     const {color, size} = info;
-
     let [boxList, setBoxList] = useState([])
     
     const changeHandler = (e) => {
@@ -27,7 +26,6 @@ const Box = () => {
         setInfo({color: ""})
     };
 
-
     return(
         <>
             <form onSubmit={createBox}>
@@ -45,9 +43,9 @@ const Box = () => {
             {
                 boxList.map((box, i) => {
                     return (
-                            <div key={i} style={{backgroundColor: box.color, width: box.size, height: box.size}}></div>
-                            )
-                    })
+                        <div key={i} style={{backgroundColor: box.color, width: box.size, height: box.size}}></div>
+                    )
+                })
             }
             </div>
         </>

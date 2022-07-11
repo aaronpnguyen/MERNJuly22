@@ -1,11 +1,10 @@
 import './App.css';
-import NinjaForm from './Components/NinjaForm';
+import Todo from './Components/Todo'
 
 function App() {
   return (
     <div className="App">
-      <h1>Test</h1>
-      <NinjaForm/>
+      <Todo/>
     </div>
   );
 }

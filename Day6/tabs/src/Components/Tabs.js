@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 
 const Tabs = () => {
+    const [buttonList, setButtonList] = useState([]);
+
     return (
         <>
-            <h1>Successful link :D</h1>
+            <h1>Test</h1>
         </>
     )
 }
