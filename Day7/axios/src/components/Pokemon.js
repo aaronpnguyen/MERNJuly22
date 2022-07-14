@@ -27,6 +27,7 @@ const Pokemon = () => {
                 return (
                     <div key={key}>
                         <li>{poke.name}</li>
+                        <li>{poke.url}</li>
                     </div>
                 )
             })
