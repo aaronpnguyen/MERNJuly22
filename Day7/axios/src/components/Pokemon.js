@@ -15,25 +15,25 @@ const Pokemon = () => {
     }
 
     return(
-    <>  
-        <div>
-            <h1>Pokemon button getter</h1>
-            <button onClick={getData}>Axios, get 'em all</button>
-        </div>
-            <h3>List of Pokemon:</h3>
-        <div>
-        {
-            pokeList.map((poke, key) => {
-                return (
-                    <div key={key}>
-                        <li>{poke.name}</li>
-                        <li>{poke.url}</li>
-                    </div>
-                )
-            })
-        }
-        </div>
-    </>
+        <>  
+            <div>
+                <h1>Pokemon button getter</h1>
+                <button onClick={getData}>Axios, get 'em all</button>
+            </div>
+                <h3>List of Pokemon:</h3>
+            <div>
+            {
+                pokeList.map((poke, key) => {
+                    return (
+                        <div key={key}>
+                            <li>{poke.name}</li>
+                            <li>{poke.url}</li>
+                        </div>
+                    )
+                })
+            }
+            </div>
+        </>
     )
 }
 
