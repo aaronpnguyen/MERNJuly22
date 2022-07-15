@@ -22,7 +22,10 @@ const Skywalker = () => {
             console.log(Object.keys(response.data))
             console.log(Object.values(response.data))
         }).catch(error => {
+            console.log("hey error!")
             console.log(error)
+            setDataKeys(["Error"])
+            setDataValue(["These aren't the droids you're looking for"])
         });
     }, [submit])
 
