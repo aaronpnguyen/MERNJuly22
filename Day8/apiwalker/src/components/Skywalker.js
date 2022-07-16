@@ -19,10 +19,9 @@ const Skywalker = () => {
         .then(response => {
             setDataKeys(Object.keys(response.data))
             setDataValue(Object.values(response.data))
-            console.log(Object.keys(response.data))
-            console.log(Object.values(response.data))
+            console.log("Keys: ", Object.keys(response.data))
+            console.log("Values: ", Object.values(response.data))
         }).catch(error => {
-            console.log("hey error!")
             console.log(error)
             setDataKeys(["Error"])
             setDataValue(["These aren't the droids you're looking for"])
@@ -39,7 +38,7 @@ const Skywalker = () => {
             <form onSubmit={submitForm}>
                 <label htmlFor='search'>Search for: </label>
                 <select name="query" onChange={e => setDataQuery(e.target.value)}>
-                    <option disabled selected>--Select a query---</option>
+                    <option disabled selected>--Select a query--</option>
                     {
                         apiQuery.map((item, i) => {
                             return (
