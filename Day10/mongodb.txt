@@ -1,0 +1,134 @@
+db.students.insertMany([
+    {
+        name: "Aaron",
+        home_state: "Texas",
+        lucky_number: 11,
+        birthday: {
+            month: 11,
+            day: 23,
+            year: 2001
+        }
+    },
+    {
+        name: "Moooooooogli",
+        home_state: "North Carolina",
+        lucky_number: 13,
+        birthday: {
+            month: 6,
+            day: 10,
+            year: 1993
+        }
+    },
+    {
+        name: "Billy",
+        home_state: "North Carolina",
+        lucky_number: 2,
+        birthday: {
+            month: 7,
+            day: 21,
+            year: 1994
+        }
+    },
+    {
+        name: "Evan",
+        home_state: "North Carolina",
+        lucky_number: 11,
+        birthday: {
+            month: 7,
+            day: 20,
+            year: 1993
+        }
+    },
+    {
+        name: "Jonathan",
+        home_state: "Vancouver",
+        lucky_number: 3,
+        birthday: {
+            month: 5,
+            day: 18,
+            year: 2003
+        }
+    }
+])
+
+db.students.find().pretty()
+db.students.find({$or: [{home_state: "California"}, {home_state: "Washington"}]}).pretty()
+db.students.find({lucky_number: {$gt: 3}}).pretty()
+db.students.find({lucky_number: {$lte: 10}}).pretty()
+db.students.updateMany({_id: {$exists: true}}, {$set: {interests: ["coding", "brunch", "MongoDB"]}})
+db.students.find().pretty()
+db.students.updateOne({name: "Aaron"}, {$push: {interests: "food"}})
+db.students.updateOne({name: "Jonathan"}, {$push: {interests: "taxes"}})
+db.students.updateOne({name: "Jonathan"}, {$pull: {interests: "taxes"}})
+db.students.insertMany([
+    {
+        name: "James",
+        home_state: "California",
+        lucky_number: 13,
+        birthday: {
+            month: 6,
+            day: 10,
+            year: 1993
+        }
+    },
+    {
+        name: "Steve",
+        home_state: "California",
+        lucky_number: 2,
+        birthday: {
+            month: 7,
+            day: 21,
+            year: 1994
+        }
+    },
+    {
+        name: "Bob",
+        home_state: "California",
+        lucky_number: 11,
+        birthday: {
+            month: 7,
+            day: 20,
+            year: 1993
+        }
+    },
+    {
+        name: "Zoe",
+        home_state: "California",
+        lucky_number: 3,
+        birthday: {
+            month: 5,
+            day: 18,
+            year: 2003
+        }
+    }
+])
+db.students.remove({home_state: "California"})
+db.students.remove({name: "Billy"}, true)
+db.students.remove({lucky_number: {$gt: 5}}, true)
+db.students.updateMany({_id: {$exists: true}}, {$set: {number_of_belts: 0}})
+db.students.insertMany([
+    {
+        name: "Jackie",
+        home_state: "Washington",
+        lucky_number: 13,
+        birthday: {
+            month: 6,
+            day: 10,
+            year: 1993
+        }
+    }
+    {
+        name: "Noah",
+        home_state: "Washington",
+        lucky_number: 13,
+        birthday: {
+            month: 6,
+            day: 10,
+            year: 1993
+        }
+    }
+])
+db.students.updateMany({home_state: "Washington"}, {$inc: {number_of_belts: 1}})
+db.students.updateMany({_id: {$exists: true}}, {$rename: {number_of_belts: belts_earned}})
+db.students.updateMany({_id: {$exists: true}}, {$unset: {lucky_number: ""}})
+db.students.updateMany({_id: {$exists: true}}, {$set: {updated_on: new Date()}})
