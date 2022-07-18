@@ -41,7 +41,7 @@ module.exports.updateOneJoke = (request, response) => {
 
 module.exports.deleteOneJoke = (request, response) => {
     const id = request.params.id
-    Jokes.remove({_id: id})
+    Jokes.deleteOne({_id: id})
         .then(joke => response.json(joke))
         .catch(error => response.json(error))
 }
