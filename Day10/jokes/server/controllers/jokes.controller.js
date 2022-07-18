@@ -1,6 +1,6 @@
 const Jokes = require("../models/jokes.model")
 
-// POST
+// CREATE
 
 module.exports.createJoke = (request, response) => {
     const newJoke = request.body
@@ -9,7 +9,7 @@ module.exports.createJoke = (request, response) => {
         .catch(error => response.json(error))
 }
 
-// GET
+// READ
 
 module.exports.getAllJokes = (request, response) => {
     Jokes.find()
@@ -24,7 +24,7 @@ module.exports.getOneJoke = (request, response) => {
         .catch(error => response.json(error))
 }
 
-// PUT
+// UPDATE
 
 module.exports.updateOneJoke = (request, response) => {
     const id = request.params.id, updateValue = request.body
