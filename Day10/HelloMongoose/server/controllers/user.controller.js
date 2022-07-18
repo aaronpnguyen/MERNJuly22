@@ -19,7 +19,7 @@ module.exports.createNewUser = (req, res) => {
 };
 
 module.exports.updateExistingUser = (req, res) => {
-  User.findOneAndUpdate({_id: req.params.id}, req.body, { new: true})
+  User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
     .then(updatedUser => res.json({user: updatedUser}))
     .catch(err => res.json({message: "Something went wrong", error: err}));
 };
