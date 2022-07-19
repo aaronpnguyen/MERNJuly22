@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-DATABASE = "products_db";
+require('dotenv').config();
+const DATABASE = process.env.MYDATABASE
 
-mongoose.connect(`mongodb+srv://root:root@july2022.shwr2gh.mongodb.net/${DATABASE}?retryWrites=true&w=majority`, {
+mongoose.connect(DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

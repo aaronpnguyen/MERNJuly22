@@ -17,7 +17,7 @@ const entries = aaronsDoor => {
     for (let parkersKey in aaronsDoor) {
         output.push([parkersKey, aaronsDoor[parkersKey]])
     }
-    return output
+    
 }
 
-console.log(entries(obj1)) 
+console.log(entries(obj1))

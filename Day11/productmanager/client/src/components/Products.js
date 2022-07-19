@@ -10,7 +10,13 @@ const Products = () => {
     });
     const [productList, setProductList] = useState([]);
     const [update, setUpdate] = useState(false);
-    
+
+    const changeHandler = (e) => {
+        setInfo({
+            ...info,
+            [e.target.name]: e.target.value
+        })
+    };
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/products")
@@ -24,13 +30,6 @@ const Products = () => {
         })
     }, [update]);
 
-    const changeHandler = (e) => {
-        setInfo({
-            ...info,
-            [e.target.name]: e.target.value
-        })
-    };
-
     const onSubmit = (e) => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/product/new", {title, price, description})
@@ -38,6 +37,14 @@ const Products = () => {
         .catch(error => {console.log(error)})
         setUpdate(!update)
         console.log(update)
+    }
+
+    const deleteOne = id => {
+        let filteredList = productList.filter((item, i) => {
+            return i !== id
+        })
+        setUpdate(!update)
+        setProductList(filteredList)
     }
 
     const {title, price, description} = info;
@@ -58,7 +65,7 @@ const Products = () => {
                 </div>
                 <input type="submit" value="Create"></input>
             </form>
-            {update && <ProductList productList={productList}/>}
+            {update && <ProductList productList={productList} deleteOne={deleteOne}/>}
         </>
     );
 };
