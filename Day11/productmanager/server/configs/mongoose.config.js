@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-DATABASE = "jokes_db";
+DATABASE = "products_db";
 
 mongoose.connect(`mongodb+srv://root:root@july2022.shwr2gh.mongodb.net/${DATABASE}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
