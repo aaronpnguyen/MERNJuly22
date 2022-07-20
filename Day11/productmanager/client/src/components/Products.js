@@ -43,7 +43,7 @@ const Products = () => {
         let filteredList = productList.filter((item, i) => {
             return i !== id
         })
-        setUpdate(!update)
+        // setUpdate(!update)
         setProductList(filteredList)
     }
 
