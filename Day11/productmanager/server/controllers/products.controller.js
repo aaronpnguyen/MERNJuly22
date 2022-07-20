@@ -12,7 +12,7 @@ module.exports.createProduct = (request, response) => {
 // READ
 
 module.exports.getAllProducts = (request, response) => {
-    Products.find()
+    Products.find().sort([['title', -1]]) // Sorting alphabetically, 1 for ascending, -1 for descending
         .then(products => response.json(products))
         .catch(error => response.json(error))
 }

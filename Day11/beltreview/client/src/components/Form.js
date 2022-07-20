@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios'
 
-const Form = () => {
+const Form = props => {
     let [info, setInfo] = useState({})
     let [errors, setErrors] = useState({})
     
@@ -33,6 +33,7 @@ const Form = () => {
                 setErrors(response.data.errors)
             } else {
                 setErrors({})
+                props.setSubmit(!props.submit)
             }
         })
         .catch(error => console.log(error))
@@ -61,7 +62,7 @@ const Form = () => {
                     <input type="date" name="graduationDate" onChange={changeHandler}></input>
                 </div>
                 <div>
-                    <label>Veteran?: </label>
+                    <label>Veteran? </label>
                     <input type="checkbox" name="isVeteran" onChange={changeHandler}></input>
                 </div>
                 <input type="submit"></input>
