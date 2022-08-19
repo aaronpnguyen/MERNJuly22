@@ -28,7 +28,7 @@ const Products = () => {
         .catch(error => {
             console.log(error)
         })
-    }, [update]);
+    }, [update, productList]);
 
     const onSubmit = (e) => {
         e.preventDefault()

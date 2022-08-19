@@ -54,7 +54,7 @@ const Edit = () => {
                     <button onClick={e => navigate("/new")}>Create an Author!</button>
                 </>:
                 <>
-                    <h2>Home</h2>
+                    <Link to="/"><h2>Home</h2></Link>
                     <h3>Edit this author</h3>
                     <form onSubmit={submitHandler}>
                         {<h2 style={{color: "red"}}>{errors.name?.message}</h2>}
