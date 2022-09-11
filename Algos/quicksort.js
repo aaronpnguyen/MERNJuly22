@@ -1,4 +1,4 @@
-var partition = (input, left, right) => {
+const partition = (input, left, right) => {
 	let random = Math.floor(Math.random() * (right - left + 1) + left)
 	const pivot = input[random]
 	
@@ -20,7 +20,7 @@ var partition = (input, left, right) => {
 	return left;
 }
 
-var hoare = (input, left = 0, right = input.length - 1) => {
+const hoare = (input, left = 0, right = input.length - 1) => {
 	if (left < right) {
 		const pivot = partition(input, left, right);
 		hoare(input, left, pivot - 1)
